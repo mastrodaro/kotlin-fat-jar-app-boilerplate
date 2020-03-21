@@ -1,15 +1,22 @@
-# kotlin-fat-jar-app-boilerplate
-When you need Kotlin fat jar app with DI.
+# Kotlin fat jar app boilerplate
+Project skeleton ready to development of Kotlin fat jar application.
 
-~/.gradle/gradle.properties
+# Dependencies
+* Kotlin
+* Koin
+* Logback (slf4j)
+* Detekt
+* TestNG + AssertJ
+* Jacoco coverage
+* Gradle
+
+# Gradle tasks
+* detekt
+* test
+* fatJar
+
+# Gradle config
+If there are problems gradle cannot find jdk add to the file *~/.gradle/gradle.properties* following:
 ```
 org.gradle.java.home=<path to jdk>
 ```
-
-Gradle tasks:
-check
-fatJar
-test
-testCoverage
-
-//teraz logback

@@ -61,6 +61,8 @@ tasks {
     test {
         useTestNG()
         dependsOn(":detekt")
+        jacoco
+        finalizedBy(jacocoTestReport)
     }
     jacocoTestReport {
         reports {
@@ -111,16 +113,6 @@ tasks.register<Jar>("fatJar") {
     from({
         configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
     })
-}
-
-val testCoverage by tasks.registering {
-    group = "verification"
-    description = "Runs the unit tests with coverage."
-
-    dependsOn(":test", ":jacocoTestReport", ":jacocoTestCoverageVerification")
-    val jacocoTestReport = tasks.findByName("jacocoTestReport")
-    jacocoTestReport?.mustRunAfter(tasks.findByName("test"))
-    tasks.findByName("jacocoTestCoverageVerification")?.mustRunAfter(jacocoTestReport)
 }
 
 detekt {
