@@ -20,3 +20,18 @@ If there are problems gradle cannot find jdk add to the file *~/.gradle/gradle.p
 ```
 org.gradle.java.home=<path to jdk>
 ```
+
+# Changes to adopt to new project
+*settings.gradle.kts*
+```
+rootProject.name = "..."
+```
+
+*build.gradle.kts*
+```
+group = "..."
+
+application {
+    mainClassName = "..."
+}
+```

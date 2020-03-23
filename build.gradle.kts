@@ -62,6 +62,7 @@ tasks {
         useTestNG()
         dependsOn(":detekt")
         jacoco
+        finalizedBy(jacocoTestCoverageVerification)
         finalizedBy(jacocoTestReport)
     }
     jacocoTestReport {
